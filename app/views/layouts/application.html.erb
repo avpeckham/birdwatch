@@ -8,6 +8,22 @@
 </head>
 <body>
 
+<h1>Listing Birds!</h1>
+<%= link_to "All Birds", all_path %>
+<%= link_to "My Birds", index_path %>
+
+  <% if user_signed_in? %>
+
+  <%= link_to('Edit Preferences', edit_user_registration_path) %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+
+<% else %>
+
+  <%= link_to('Register', new_user_registration_path)  %> or
+  <%= link_to('Login', new_user_session_path)  %>  
+
+<% end %>
+
 <%= yield %>
 
 </body>

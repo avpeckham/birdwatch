@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+
+<table>
+
+
+  <% Bird.all.each do |bird| %>
+      <td><%= bird.common_name %></td>
+      <td><%= link_to 'Show', bird %></td>
+          <% if user_signed_in? && current_user.id == bird.user_id %>
+            <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
+            <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          <% end %>  
+    </tr>
+  <% end %>
+
+</table>
+
+<br>
+
+<%= link_to 'New Bird', new_bird_path %>

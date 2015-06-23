@@ -25,6 +25,7 @@ class BirdsController < ApplicationController
   # POST /birds.json
   def create
     @bird = Bird.new(bird_params)
+    @bird.user_id = current_user.id
 
     respond_to do |format|
       if @bird.save
