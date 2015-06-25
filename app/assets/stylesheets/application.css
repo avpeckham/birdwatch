@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+
+h1{
+	text-align: center;
+	color: blue; 
+}
+
+.welcome{
+	
+}
+
+.col-left{
+	float: left; 
+	width: 45%; 
+}
+
+.col-right{
+	float: right; 
+	width: 45%; 
+}

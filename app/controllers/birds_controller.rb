@@ -7,10 +7,18 @@ class BirdsController < ApplicationController
     @birds = Bird.all
   end
 
+  def all
+  end
+
   # GET /birds/1
   # GET /birds/1.json
   def show
   end
+
+  def welcome
+    @welcome = true
+  end
+
 
   # GET /birds/new
   def new

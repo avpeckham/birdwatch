@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
+<!-- MY BIRDS -->
 
-<h1>Listing Birds</h1>
+<p id="notice"><%= notice %></p>
 
 <table>
   <thead>
@@ -10,16 +10,22 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @birds.each do |bird| %>
-      <tr>
-        <td><%= bird.common_name %></td>
-        <td><%= link_to 'Show', bird %></td>
-        <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
-        <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+<tbody>
+  <% if user_signed_in? %>
+    <% current_user.birds.each do |bird| %>
+        <tr>
+          <td><%= bird.common_name %></td>
+          <td><%= link_to 'Show', bird %></td>
+          <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
+          <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
+  <% else %>
+    <p class="notice">You must be <%= link_to('logged in', new_user_session_path)  %> to view, edit, or delete your tweets. </p>
+
+  <% end %>
+</tbody>
 </table>
 
 <br>

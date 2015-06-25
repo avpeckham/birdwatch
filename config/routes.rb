@@ -6,11 +6,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'birds#index'
+   root "birds#welcome"
+
+   get "welcome" => "birds#welcome"
 
    get "all" => "birds#all"
 
    get "index" => "birds#index"
+
+   get "profile" => "users#profile"
 
 
   # Example of regular route:
