@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#flickr API
+gem 'flickraw'
+# devise gem
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
