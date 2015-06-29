@@ -9,39 +9,43 @@
 <body>
 
 <h1>Birdwatch</h1>
+<div class="col-right">
+	<%="current date: " + Time.now.strftime("%m/%d/%Y") %> </br>
+	<%="current time: " + Time.now.strftime("%H:%M:%S")%>
+</div>
 <!-- this will provide a different header for the login page -->
-<% if @welcome == true %>
-	<div class="col-left welcome">
+<div class="col-left welcome">
+	<% if @welcome == true %>
+			    <% if user_signed_in? %>
+			        <%= link_to "My Birds", index_path %>
+			        <%= link_to('Edit Preferences', edit_user_registration_path) %>
+			        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+
+				<% else %>
+
+			        <%= link_to('Register', new_user_registration_path)  %> or
+			        <%= link_to('Login', new_user_session_path) %>  
+
+		      <% end %>
+
+		  
+	<% else %>
+
+		<%= link_to "All Birds", all_path %>
 		    <% if user_signed_in? %>
-		        <%= link_to "My Birds", index_path %>
-		        <%= link_to('Edit Preferences', edit_user_registration_path) %>
-		        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+			    <%= link_to "My Birds", index_path %>
+			    <%= link_to('Edit Preferences', edit_user_registration_path) %>
+			    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 
-			<% else %>
+		    <% else %>
 
-		        <%= link_to('Register', new_user_registration_path)  %> or
-		        <%= link_to('Login', new_user_session_path) %>  
+			    <%= link_to('Register', new_user_registration_path)  %> or
+			    <%= link_to('Login', new_user_session_path) %>  
 
-	      <% end %>
-  	</div>
-	  
-<% else %>
+	    <% end %>
 
-	<%= link_to "All Birds", all_path %>
-	    <% if user_signed_in? %>
-		    <%= link_to "My Birds", index_path %>
-		    <%= link_to('Edit Preferences', edit_user_registration_path) %>
-		    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-
-	    <% else %>
-
-		    <%= link_to('Register', new_user_registration_path)  %> or
-		    <%= link_to('Login', new_user_session_path) %>  
-
-    <% end %>
-
-<% end %>
-
+	<% end %>
+</div>
 <%= yield %>
 
 </body>
