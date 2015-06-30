@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629234504) do
+ActiveRecord::Schema.define(version: 20150630003421) do
 
   create_table "Users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,8 +37,7 @@ ActiveRecord::Schema.define(version: 20150629234504) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.date     "date_seen"
-    t.time     "time_seen"
+    t.datetime "date_seen"
   end
 
 end
