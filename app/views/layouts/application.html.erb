@@ -9,34 +9,46 @@
 <body>
 
 <h1>Birdwatch</h1>
-<!-- this will provide a different header for the login page -->
-<div class="col-left welcome">
-	<% if @welcome == true %>
-			    <% if user_signed_in? %>
-			        <%= link_to "My Birds", index_path %>
-			        <%= link_to('Edit Preferences', edit_user_registration_path) %>
-			        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-
-				<% else %>
-
-			        <%= link_to('Register', new_user_registration_path)  %> or
-			        <%= link_to('Login', new_user_session_path) %>  
-
-		      <% end %>
-
-		  
-	<% else %>
-
-		<%= link_to "All Birds", all_path %>
+<div class="nav">
+        <%= link_to "All Birds", all_path %>
 		    <% if user_signed_in? %>
 			    <%= link_to "My Birds", index_path %>
 			    <%= link_to('Edit Preferences', edit_user_registration_path) %>
 			    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 
 		    <% else %>
-
 			    <%= link_to('Register', new_user_registration_path)  %> or
 			    <%= link_to('Login', new_user_session_path) %>  
+	    <% end %>
+
+</div>
+
+<!-- this will provide a different header for the login page --> 
+<div class="col-left welcome">
+	<% if @welcome == true %>
+	    <% if user_signed_in? %>
+   			<h3>My Recent Sightings</h3>
+	        <table>
+	            <% current_user.birds.each do |bird| %>
+			        <tr>
+			        <td><%= bird.common_name %></td>
+			        <td><%= bird.date_seen%></td>
+			        <td><%= link_to 'Show', bird %></td>
+			        <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
+			        <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			        </tr>
+        	    <% end %>
+		    </table>
+
+		<% else %>
+			<h2>Welcome to Birdwatch!</h2>
+	        <h3>Fledgling to our site? <%= link_to('Register here', new_user_registration_path) %></h3>
+	        <h3>Old hat? <%= link_to('Log in', new_user_session_path) %> </h3>
+			<h3>For our users, a few guidelines ... </h3>
+			<p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.</p>
+
+			<p>Beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+
 
 	    <% end %>
 

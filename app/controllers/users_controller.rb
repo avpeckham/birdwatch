@@ -20,6 +20,10 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
   end
+
+  def sign_up
+    @sign_up = true
+  end
   
 
   # POST /users
