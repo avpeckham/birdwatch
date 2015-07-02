@@ -43,3 +43,13 @@ h1{
 	float: right; 
 	width: 45%; 
 }
+
+.map{
+	width: 800px; 
+}
+
+#map{
+	width: 800px; 
+	height: 400px; 
+
+}

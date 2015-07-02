@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+#GoogleMapsForRails
+gem 'gmaps4rails'
 #flickr API
 gem 'flickraw'
 # devise gem

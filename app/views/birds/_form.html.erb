@@ -1,3 +1,5 @@
+
+
 <%= form_for(@bird) do |f| %>
   <% if @bird.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +19,13 @@
     <%= f.label :date_seen %><br>
     <%= f.datetime_select :date_seen %><br>
   </div>
+
+  <div class="map">
+  <div id="map"></div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
