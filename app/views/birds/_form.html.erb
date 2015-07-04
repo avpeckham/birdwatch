@@ -17,12 +17,14 @@
     <%= f.label :common_name %><br>
     <%= f.text_area :common_name %><br>
     <%= f.label :date_seen %><br>
-    <%= f.datetime_select :date_seen %><br>
+    <%= f.datetime_select :date_seen %></br>
+    <%= f.label :latitude %></br>
+    <%= f.number_field :latitude %></br>
+    <%= f.label :longitude %></br>
+    <%= f.number_field :longitude %></br>
+    <br>
   </div>
 
-  <div class="map">
-  <div id="map"></div>
-  </div>
 
   <div class="actions">
     <%= f.submit %>

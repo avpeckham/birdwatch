@@ -7,8 +7,43 @@
   <%= @bird.common_name %>
   <strong>Date Seen:</strong>
   <%= @bird.date_seen %>
+  <strong>Longitude:</strong>
+  <%= @bird.longitude %>
+  <strong>Latitude:</strong>
+  <%= @bird.latitude %>
 </p>
 
 <%= link_to 'Edit', edit_bird_path(@bird) %> |
 <%= link_to 'Back', birds_path %>
 
+  <div class="map">
+  <div id="map"></div>
+  </div>
+
+
+<script>handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": <%= @bird.latitude %>,
+      "lng": <%= @bird.longitude %>,
+      "picture": {
+        "url": "http://clipartist.net/social/clipartist.net/G/places_pin_icon-999px.png",
+        "width":  36,
+        "height": 36
+      },
+      "infowindow": "hello!"
+    }
+  ]);
+
+    if (_.isEmpty(markers)){
+    handler.getMap().setZoom(5);
+    handler.getMap().setCenter({lat: 42, lng: -71});
+  }
+  else{
+  	handler.getMap().setZoom(5);
+  	handler.getMap().setCenter({lat: <%= @bird.latitude %>, lng: <%= @bird.longitude %>,});
+    // handler.bounds.extendWith(markers);
+    // handler.fitMapToBounds();        
+  }
+});</script>
