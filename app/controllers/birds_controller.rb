@@ -5,6 +5,7 @@ class BirdsController < ApplicationController
   # GET /birds.json
   def index
     @birds = Bird.all
+
   end
 
   def all
@@ -37,7 +38,7 @@ class BirdsController < ApplicationController
 
     respond_to do |format|
       if @bird.save
-        format.html { redirect_to @bird, notice: 'Bird was successfully created.' }
+        format.html { redirect_to @bird, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @bird }
       else
         format.html { render :new }
@@ -51,7 +52,7 @@ class BirdsController < ApplicationController
   def update
     respond_to do |format|
       if @bird.update(bird_params)
-        format.html { redirect_to @bird, notice: 'Bird was successfully updated.' }
+        format.html { redirect_to @bird, notice: 'Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @bird }
       else
         format.html { render :edit }
@@ -65,7 +66,7 @@ class BirdsController < ApplicationController
   def destroy
     @bird.destroy
     respond_to do |format|
-      format.html { redirect_to birds_url, notice: 'Bird was successfully destroyed.' }
+      format.html { redirect_to birds_url, notice: 'Entry was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

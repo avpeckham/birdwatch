@@ -13,7 +13,7 @@
 <body>
 
 <h1>Birdwatch</h1>
-<div class="nav">
+<nav>
         <%= link_to "All Birds", all_path %>
 		    <% if user_signed_in? %>
 			    <%= link_to "My Birds", index_path %>
@@ -25,11 +25,12 @@
 			    <%= link_to('Login', new_user_session_path) %>  
 	    <% end %>
 
-</div>
+</nav>
 
 <!-- this will provide a different header for the login page --> 
-<div class="col-left welcome">
-	<% if @welcome == true %>
+
+<% if @welcome == true %>
+	<div class="col-left">
 	    <% if user_signed_in? %>
    			<h3>My Recent Sightings</h3>
 	        <table>
@@ -55,9 +56,10 @@
 
 
 	    <% end %>
+    </div>
 
-	<% end %>
-</div>
+<% end %>
+
 <%= yield %>
 
 </body>

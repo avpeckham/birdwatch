@@ -6,7 +6,7 @@
 
 <% else %>
 
-<p id="notice">Please log in to enter a bird. </p>
+<p id="notice">Please <%= link_to('log in', new_user_session_path) %> to enter a bird. </p>
 
 <%end%>
 

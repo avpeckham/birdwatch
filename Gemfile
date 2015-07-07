@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 
 #GoogleMapsForRails
 gem 'gmaps4rails'
+#geocoder
+gem 'geocoder'
 #flickr API
 gem 'flickraw'
 # devise gem
