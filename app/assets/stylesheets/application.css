@@ -24,6 +24,13 @@ h1{
 	background-color: rgba(228, 233, 233, 0.9); 
 	padding: 10px; 
 	color: rgb(118, 8, 185); 
+	border-radius: 20px; 
+}
+
+h3{
+	background-color: rgba(228, 233, 233, 0.9); 
+	padding: 10px; 
+	border-radius: 20px; 
 }
 
 nav{
@@ -34,6 +41,7 @@ nav{
 	margin-bottom: 40px; 
 	padding: 10px; 
 	background-color: rgba(228, 233, 233, 0.9); 
+	border-radius: 20px; 
 }
 
 a{
@@ -50,7 +58,12 @@ a:visited{
 
 .actions{
 	color: #fff; 
+}
 
+.background{
+	background-color: rgba(228, 233, 233, 0.9);
+	padding: 10px;
+	border-radius: 20px; 
 }
 
 .col-left{

@@ -11,7 +11,7 @@
   </thead>
 
 
-<tbody>
+<tbody class="background">
   <% if user_signed_in? %>
     <% current_user.birds.each do |bird| %>
         <tr>
@@ -31,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Bird', new_bird_path %>
+<%= link_to 'New Bird', new_bird_path, class:"background" %>

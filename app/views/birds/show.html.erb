@@ -2,7 +2,7 @@
 
 
 
-<p>
+<p class="background">
   <strong>Common name:</strong>
   <%= @bird.common_name %>
   <strong>Date Seen:</strong>
@@ -13,26 +13,34 @@
   <%= @bird.latitude %>
 </p>
 
-<%= link_to 'Edit', edit_bird_path(@bird) %> |
-<%= link_to 'Back', birds_path %>
+<%= link_to 'Edit', edit_bird_path(@bird), class:"background"%> |
+<%= link_to 'Back', birds_path, class:"background" %>
 
   <div class="map">
   <div id="map"></div>
   </div>
 
+    <script type="text/javascript">
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        var markers = handler.addMarkers([{"lat": <%= @bird.latitude %>, "lng": <%= @bird.longitude %>}]);
+        handler.map.centerOn(markers[0]);
+        handler.getMap().setZoom(15); 
+      });
+    </script>
 
-<script>handler = Gmaps.build('Google');
+<!-- <script>handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
     if (_.isEmpty(markers)){
-    handler.getMap().setZoom(10);
+    handler.getMap().setZoom(15);
     handler.getMap().setCenter({lat: <%= @bird.latitude %>, lng: <%= @bird.longitude %>,});
   }
   else{
-  	handler.getMap().setZoom(10);
+  	handler.getMap().setZoom(15);
   	handler.getMap().setCenter({lat: <%= @bird.latitude %>, lng: <%= @bird.longitude %>,});
     // handler.bounds.extendWith(markers);
     // handler.fitMapToBounds();        
   }
-});</script>
+});</script> -->
