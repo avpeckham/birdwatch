@@ -1,7 +1,7 @@
 
-<% if notice == true %>
+<% if notice %>
   <p id="notice"><%= notice %></p>
-  <% end %>
+<% end %>
 
 
 <p class="background">
@@ -38,19 +38,3 @@
         handler.getMap().setZoom(15); 
       });
     </script>
-
-<!-- <script>handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-
-    if (_.isEmpty(markers)){
-    handler.getMap().setZoom(15);
-    handler.getMap().setCenter({lat: <%= @bird.latitude %>, lng: <%= @bird.longitude %>,});
-  }
-  else{
-  	handler.getMap().setZoom(15);
-  	handler.getMap().setCenter({lat: <%= @bird.latitude %>, lng: <%= @bird.longitude %>,});
-    // handler.bounds.extendWith(markers);
-    // handler.fitMapToBounds();        
-  }
-});</script> -->

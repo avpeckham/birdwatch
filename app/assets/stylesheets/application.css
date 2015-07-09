@@ -27,8 +27,14 @@ h1{
 	border-radius: 20px; 
 }
 
+h2{
+	text-align: center;
+	padding: 10px; 
+	color: rgb(118, 8, 185); 
+	border-radius: 20px; 
+}
+
 h3{
-	background-color: rgba(228, 233, 233, 0.9); 
 	padding: 10px; 
 	border-radius: 20px; 
 }
@@ -40,13 +46,12 @@ nav{
 	text-align: center; 
 	margin-bottom: 40px; 
 	padding: 10px; 
-	background-color: rgba(228, 233, 233, 0.9); 
 	border-radius: 20px; 
 }
 
-a{
+nav a{
 	color: rgb(118, 8, 185);
-	background-color: #ccc; 
+	background-color: rgba(228, 233, 233, 0.9);
 	border-radius: 20px; 
 	padding: 5px; 
 }
@@ -90,7 +95,7 @@ a:visited{
 	border-radius: 20px; 
 	margin: 5px; 
 	width: 45%; 
-}  
+}  	
 
 #notice{
 	background-color: rgba(228, 233, 233, 0.9); 
