@@ -11,18 +11,9 @@ class BirdsController < ApplicationController
   def all
   end
 
-  def gmaps4rails_infowindow
-    console.log(you clicked it)
-  end
-
   # GET /birds/1
   # GET /birds/1.json
   def show
-#     @hash = Gmaps4rails.build_markers(@bird) do |bird, marker|
-#     marker.lat bird.latitude
-#     marker.lng bird.longitude
-#     marker.infowindow @bird.common_name
-# end
   end
 
   def welcome

@@ -15,7 +15,7 @@
  */
 
 body{
-	background: url(http://blogs.iesabroad.org/wp-content/uploads/2011/09/juda.galapagos.birdwatching.jpg); 
+	background: url(http://localhost:3000/assets/birdwatching.jpg); 
 	background-size: cover; 
 }
 
@@ -45,19 +45,19 @@ nav{
 }
 
 a{
-	color: rgb(118, 8, 185); 
+	color: rgb(118, 8, 185);
+	background-color: #ccc; 
+	border-radius: 20px; 
+	padding: 5px; 
+}
+
+a:hover{
+	background-color: #ccc; 
+	color: rgb(20, 89, 175);
 }
 
 a:visited{
 	color: rgb(118, 8, 185); 
-}
-
-.field{
-	color: #fff; 
-}
-
-.actions{
-	color: #fff; 
 }
 
 .background{
@@ -84,8 +84,20 @@ a:visited{
 	padding: 10px; 
 }
 
-.map{
-	width: 800px; 
+.field, .actions{
+	background-color: rgba(228, 233, 233, 0.9);
+	padding: 5px; 
+	border-radius: 20px; 
+	margin: 5px; 
+	width: 45%; 
+}  
+
+#notice{
+	background-color: rgba(228, 233, 233, 0.9); 
+	border-radius: 20px;
+	color: rgb(118, 8, 185);
+	padding: 5px; 
+
 }
 
 #map{

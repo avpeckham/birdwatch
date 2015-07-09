@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
 
+<% if notice == true %>
+  <p id="notice"><%= notice %></p>
+  <% end %>
 
 
 <p class="background">
@@ -16,14 +18,22 @@
 <%= link_to 'Edit', edit_bird_path(@bird), class:"background"%> |
 <%= link_to 'Back', birds_path, class:"background" %>
 
-  <div class="map">
   <div id="map"></div>
   </div>
 
     <script type="text/javascript">
       handler = Gmaps.build('Google');
       handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        var markers = handler.addMarkers([{"lat": <%= @bird.latitude %>, "lng": <%= @bird.longitude %>}]);
+        var markers = handler.addMarkers([{
+            "lat": <%= @bird.latitude %>, 
+            "lng": <%= @bird.longitude %>, 
+            "picture": {
+              "url": "http://localhost:3000/assets/toojk1W.png",
+              "width": 36, 
+              "height": 36
+            }
+
+            }]);
         handler.map.centerOn(markers[0]);
         handler.getMap().setZoom(15); 
       });
