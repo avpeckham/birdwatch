@@ -25,6 +25,10 @@ h1{
 	padding: 10px; 
 	color: rgb(118, 8, 185); 
 	border-radius: 20px; 
+	display: inline-block;
+	width: 100%;
+	overflow: auto; 
+	margin: 0 auto;
 }
 
 h2{
@@ -37,6 +41,7 @@ h2{
 h3{
 	padding: 10px; 
 	border-radius: 20px; 
+	overflow: auto;
 }
 
 nav{
