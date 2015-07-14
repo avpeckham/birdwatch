@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h1>Birdwatch</h1>
+<h1><%= link_to "Birdwatch", welcome_path %></h1>
 <nav>
         <%= link_to "All Birds", all_path %>
 		    <% if user_signed_in? %>
