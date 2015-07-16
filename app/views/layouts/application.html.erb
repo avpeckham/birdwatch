@@ -13,6 +13,8 @@
 <body>
 
 <h1><%= link_to "Birdwatch", welcome_path %></h1>
+<!-- navigation line -->
+
 <nav>
         <%= link_to "All Birds", all_path %>
 		    <% if user_signed_in? %>
@@ -26,6 +28,8 @@
 	    <% end %>
 
 </nav>
+
+<!-- end of navigation line -->
 
 <!-- this will provide a different header for the login page --> 
 
@@ -44,6 +48,9 @@
 			        </tr>
         	    <% end %>
 		    </table>
+				<br>
+
+				<%= link_to 'New Bird', new_bird_path %> 
 
 		<% else %>
 			<h2>Welcome to Birdwatch!</h2>
@@ -59,6 +66,8 @@
     </div>
 
 <% end %>
+
+<!-- end of welcome section -->
 
 <%= yield %>
 

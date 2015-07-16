@@ -35,6 +35,7 @@ class BirdsController < ApplicationController
   def create
     @bird = Bird.new(bird_params)
     @bird.user_id = current_user.id
+    @bird.user_name = current_user_name
 
     respond_to do |format|
       if @bird.save
@@ -79,6 +80,6 @@ class BirdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bird_params
-      params.require(:bird).permit(:common_name, :date_seen, :latitude, :longitude)
+      params.require(:bird).permit(:common_name, :user_name, :date_seen, :latitude, :longitude)
     end
 end

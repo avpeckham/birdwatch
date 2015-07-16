@@ -33,6 +33,7 @@ h1{
 
 h2{
 	text-align: center;
+	background-color: rgba(228, 233, 233, 0.9); 
 	padding: 10px; 
 	color: rgb(118, 8, 185); 
 	border-radius: 20px; 
