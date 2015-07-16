@@ -14,6 +14,7 @@ class BirdsController < ApplicationController
   # GET /birds/1
   # GET /birds/1.json
   def show
+
   end
 
   def welcome
@@ -35,7 +36,9 @@ class BirdsController < ApplicationController
   def create
     @bird = Bird.new(bird_params)
     @bird.user_id = current_user.id
-    @bird.user_name = current_user_name
+    # current_user is a devise tool; user_name is the name of the table column. I need BOTH current_user AND user_name together. 
+    @bird.user_name = current_user.user_name
+
 
     respond_to do |format|
       if @bird.save
@@ -76,6 +79,7 @@ class BirdsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bird
       @bird = Bird.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
