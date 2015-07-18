@@ -10,6 +10,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
+    @user_name = current_user.user_name
+  end
+
+  def profile
+
   end
 
   # GET /users/new

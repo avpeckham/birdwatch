@@ -6,18 +6,27 @@
 
 <h3>All Birds</h3>
 <table>
-
-
-  <% Bird.all.each do |bird| %>
-      <td><%= bird.common_name %></td>
-      <td><%= bird.date_seen %></td>
-      <td><%= link_to 'Show', bird %></td>
-          <% if user_signed_in? && current_user.id == bird.user_id %>
-            <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
-            <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-          <% end %>  
+  <thead>
+    <tr>
+      <th>Bird Name</th>
+      <th>Date seen</th>
+      <th>Seen by</th>
     </tr>
+  </thead>
+  <% Bird.all.each do |bird| %>
+    <tbody>
+        <tr>
+        <td><%= bird.common_name %></td>
+
+        <td><%= bird.date_seen %></td>
+        <td><%= bird.user_name %></td>
+        <td><%= link_to 'Show', bird %></td>
+            <% if user_signed_in? && current_user.id == bird.user_id %>
+              <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
+              <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>  
+      </tr>
+    </tbody>
   <% end %>
 
 </table>

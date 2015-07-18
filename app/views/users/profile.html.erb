@@ -2,21 +2,39 @@
 <div class="col-right">
 
   <h2>User Profile</h2>
-    <table>
 
-      <% Bird.all.each do |bird| %>
+  <h3>Username: <%= current_user.user_name %></h3>
+
+  <h3>Email: <%= current_user.email %></h3>
+
+  <h3>Bio: </h3>
+
+  
+<div>
+<table>
+  <thead>
+    <tr>
+      <th><h3>Birds Registered</h3></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+<tbody>
+  <% if user_signed_in? %>
+    <% current_user.birds.each do |bird| %>
+        <tr>
           <td><%= bird.common_name %></td>
-          <td><%= bird.date_seen %></td>
+          <td><%= bird.date_seen%></td>
           <td><%= link_to 'Show', bird %></td>
-          <td><%=  %></td>
-              <% if user_signed_in? && current_user.id == bird.user_id %>
-                <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
-                <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-              <% end %>  
+          <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
+          <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
-      <% end %>
+    <% end %>
+  <% else %>
+    <p class="notice">You must be <%= link_to('logged in', new_user_session_path)  %> to view, edit, or delete your birds. </p>
 
-    </table>
-
+  <% end %>
+</tbody>
+</table>
 </div>
