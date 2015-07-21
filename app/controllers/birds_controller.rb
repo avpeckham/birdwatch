@@ -9,6 +9,7 @@ class BirdsController < ApplicationController
   end
 
   def all
+
   end
 
   # GET /birds/1

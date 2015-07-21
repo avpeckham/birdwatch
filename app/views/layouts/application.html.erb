@@ -45,7 +45,8 @@
 	      <th>Seen by</th>
 	    </tr>
 	  </thead>
-      <% Bird.all.each do |bird| %>
+	  <!-- Don't actually do the following code; anything using an active record query should be in a controller or model, never a view -->
+      <% Bird.last(10).reverse.each do |bird| %>
 	    <tbody>
 		  <tr>
 	        <td><%= bird.common_name %></td>
