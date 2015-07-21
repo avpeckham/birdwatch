@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
 # method that allows users to change params using devise
 	def configure_permitted_params
-	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :user_name, :password, :password_confirmation) }
+	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :user_name, :bio, :password, :password_confirmation) }
 	devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :user_name, :bio, :password, :password_confirmation, :current_password, :encrypted_password) }
 	end
 end

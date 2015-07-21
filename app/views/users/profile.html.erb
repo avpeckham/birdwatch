@@ -1,5 +1,5 @@
 
-<div class="col-right">
+<div class="col-left">
 
 
 <tbody>
@@ -23,17 +23,20 @@
           <td><%= bird.common_name %></td>
           <td><%= bird.date_seen%></td>
           <td><%= link_to 'Show', bird %></td>
-      <% if user_signed_in? && current_user.id == bird.user_id %>
+          <% if user_signed_in? && current_user.id == bird.user_id %>
             <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
             <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
           <% end %>
-        <% end %>
-      <% else %>
+    <% end %>
+    <% else %>
         <p class="notice">You must be <%= link_to('logged in', new_user_session_path)  %> to view a profile. </p>
       
       
   <% end %>
+  
 </tbody>
+
 </table>
+
 </div>

@@ -19,6 +19,7 @@
         <%= link_to "All Birds", all_path %>
 		    <% if user_signed_in? %>
 			    <%= link_to "My Birds", index_path %>
+		        <%= link_to 'New Bird', new_bird_path %>
 			    <!-- The extra slash before users makes it an absolute path, rather than a relative path (which runs the ris of making it read users/users/1) -->
 			    <%= link_to "My Profile", "/users/#{current_user.id}" %>
 			    <%= link_to('Edit Preferences', edit_user_registration_path) %>
@@ -32,6 +33,37 @@
 </nav>
 
 <!-- end of navigation line -->
+
+<div class="col-right">
+
+  <h2>All Recent Sightings</h2>
+    <table>
+	  <thead>
+		<tr>
+	      <th>Bird Name</th>
+	      <th>Date seen</th>
+	      <th>Seen by</th>
+	    </tr>
+	  </thead>
+      <% Bird.all.each do |bird| %>
+	    <tbody>
+		  <tr>
+	        <td><%= bird.common_name %></td>
+	        <td><%= bird.date_seen %></td>
+	        <td><%= link_to bird.user_name, "/users/#{bird.user_id}"%></td>
+	        <td><%= link_to 'Show', bird %></td>
+	        <td><%=  %></td>
+	           <% if user_signed_in? && current_user.id == bird.user_id %>
+	              <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
+	              <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+               <% end %>  
+		   </tr>
+	  <% end %>
+
+    </table>
+
+</div>
 
 <!-- this will provide a different header for the login page --> 
 
