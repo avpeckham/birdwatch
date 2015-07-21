@@ -12,8 +12,9 @@ class UsersController < ApplicationController
   def show
   end
 
-  def bio
-    @bio = current_user.user_name
+  # GET /users/1
+  def profile
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -81,6 +82,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :password)
+      params.require(:user).permit(:user_name, :password, :bio)
     end
 end

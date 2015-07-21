@@ -19,7 +19,8 @@
         <%= link_to "All Birds", all_path %>
 		    <% if user_signed_in? %>
 			    <%= link_to "My Birds", index_path %>
-			    <%= link_to "Profile", profile_path %>
+			    <!-- The extra slash before users makes it an absolute path, rather than a relative path (which runs the ris of making it read users/users/1) -->
+			    <%= link_to "My Profile", "/users/#{current_user.id}" %>
 			    <%= link_to('Edit Preferences', edit_user_registration_path) %>
 			    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 
@@ -47,12 +48,12 @@
 			        <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
 			        <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			        </tr>
+
+
         	    <% end %>
 		    </table>
 				<br>
-
 				<%= link_to 'New Bird', new_bird_path %> 
-
 		<% else %>
 			<h2>Welcome to Birdwatch!</h2>
 	        <h3>Fledgling to our site? <%= link_to('Register here', new_user_registration_path) %></h3>

@@ -19,7 +19,7 @@
         <td><%= bird.common_name %></td>
 
         <td><%= bird.date_seen %></td>
-        <td><%= bird.user_name %></td>
+        <td><%= link_to bird.user_name, "users/#{bird.user_id}"%></td>
         <td><%= link_to 'Show', bird %></td>
             <% if user_signed_in? && current_user.id == bird.user_id %>
               <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
@@ -32,6 +32,7 @@
 </table>
 
 <br>
-
+<% if user_signed_in? %>
 <%= link_to 'New Bird', new_bird_path %>
+<% end %>
 </div>
