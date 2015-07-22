@@ -25,7 +25,8 @@
 
     <script type="text/javascript">
       handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      var mapOptions = { mapTypeId: google.maps.MapTypeId.HYBRID}; 
+      handler.buildMap({ provider: mapOptions, internal: {id: 'map'}}, function(){
         var markers = handler.addMarkers([{
             "lat": <%= @bird.latitude %>, 
             "lng": <%= @bird.longitude %>, 
