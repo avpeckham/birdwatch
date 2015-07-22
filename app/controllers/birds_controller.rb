@@ -15,6 +15,7 @@ class BirdsController < ApplicationController
   # GET /birds/1
   # GET /birds/1.json
   def show
+    @show = true
 
   end
 

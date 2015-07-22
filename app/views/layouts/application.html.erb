@@ -11,7 +11,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <h1><%= link_to "Birdwatch", welcome_path %></h1>
 <!-- navigation line -->
 
@@ -26,7 +25,7 @@
 			    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 
 		    <% else %>
-			    <%= link_to('Register', new_user_registration_path)  %> or
+			    <%= link_to('Register', new_user_registration_path)  %>
 			    <%= link_to('Login', new_user_session_path) %>  
 	    <% end %>
 
@@ -53,7 +52,6 @@
 	        <td><%= bird.date_seen %></td>
 	        <td><%= link_to bird.user_name, "/users/#{bird.user_id}"%></td>
 	        <td><%= link_to 'Show', bird %></td>
-	        <td><%=  %></td>
 	           <% if user_signed_in? && current_user.id == bird.user_id %>
 	              <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
 	              <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -65,6 +63,7 @@
     </table>
 
 </div>
+
 
 <!-- this will provide a different header for the login page --> 
 
