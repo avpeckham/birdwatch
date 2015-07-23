@@ -16,8 +16,15 @@ class BirdsController < ApplicationController
   # GET /birds/1.json
   def show
     @show = true
+ 
 
   end
+
+  def list
+    
+    @listed_bird = Bird.where(common_name: params[:common_name]) 
+  end
+
 
   def welcome
     @welcome = true

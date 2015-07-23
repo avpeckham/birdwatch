@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
    get "index" => "birds#index"
 
+   get "listed_bird/:common_name" => "birds#list"
+
    get "users/:id" => "users#profile"
 
 

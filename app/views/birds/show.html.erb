@@ -6,15 +6,19 @@
 
 <p class="background">
   <strong>Common name:</strong>
-  <%= @bird.common_name %>
+  
+
+  <%= link_to @bird.common_name, "/listed_bird/#{@bird.common_name}" %><br />
+
+
   <strong>Date Seen:</strong>
-  <%= @bird.date_seen %>
+  <%= @bird.date_seen %><br />
   <strong>Longitude:</strong>
-  <%= @bird.longitude %>
+  <%= @bird.longitude %><br />
   <strong>Latitude:</strong>
-  <%= @bird.latitude %>
+  <%= @bird.latitude %><br />
   <strong>Username:</strong>
-  <%= @bird.user_name %>
+  <%= link_to @bird.user_name %>
 </p>
 
 <%= link_to 'Edit', edit_bird_path(@bird), class:"background"%> |
