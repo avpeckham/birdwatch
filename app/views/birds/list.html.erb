@@ -20,7 +20,7 @@
 	        <td><%= bird.date_seen %></td>
 	        <td><%= bird.longitude %></td>
 	        <td><%= bird.latitude %></td>
-	        <td><%= link_to bird.user_name, "root/users/#{bird.user_id}"%></td>
+	        <td><%= link_to bird.user_name, "/users/#{bird.user_id}"%></td>
 	        <td><%= link_to 'Show', bird %></td>
 	            <% if user_signed_in? && current_user.id == bird.user_id %>
 	              <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
