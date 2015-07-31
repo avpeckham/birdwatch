@@ -16,13 +16,12 @@ class BirdsController < ApplicationController
   # GET /birds/1.json
   def show
     @show = true
- 
-
   end
 
   def list
     
     @listed_bird = Bird.where(common_name: params[:common_name]) 
+
   end
 
 
@@ -90,6 +89,7 @@ class BirdsController < ApplicationController
       @bird = Bird.find(params[:id])
 
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bird_params

@@ -18,7 +18,7 @@
   <strong>Latitude:</strong>
   <%= @bird.latitude %><br />
   <strong>Username:</strong>
-  <%= link_to @bird.user_name %>
+  <%= link_to @bird.user_name, "/users/#{@bird.user_id}"%>
 </p>
 
 <%= link_to 'Edit', edit_bird_path(@bird), class:"background"%> |
